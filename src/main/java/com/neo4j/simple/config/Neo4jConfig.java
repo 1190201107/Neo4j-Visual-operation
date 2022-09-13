@@ -1,15 +1,17 @@
 package com.neo4j.simple.config;
 
-import org.neo4j.ogm.session.SessionFactory;
+import org.neo4j.driver.Driver;
+import org.neo4j.driver.internal.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.neo4j.core.transaction.Neo4jTransactionManager;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
-import org.springframework.data.neo4j.transaction.Neo4jTransactionManager;
 
 @Configuration
 @EnableNeo4jRepositories("com.neo4j.simple.repository") // 声明neo4j repository存放地址
 public class Neo4jConfig {
+
     @Value("${spring.data.neo4j.uri}")
     private String uri;
     @Value("${spring.data.neo4j.username}")
@@ -30,6 +32,6 @@ public class Neo4jConfig {
 
     @Bean("neo4jTransaction")
     public Neo4jTransactionManager neo4jTransactionManager(SessionFactory sessionFactory) {
-        return new Neo4jTransactionManager(sessionFactory);
+        return new Neo4jTransactionManager((Driver) sessionFactory);
     }
 }
