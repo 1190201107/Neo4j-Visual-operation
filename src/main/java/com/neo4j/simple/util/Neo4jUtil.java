@@ -7,8 +7,6 @@ import com.neo4j.simple.VO.RelationVO;
 import com.neo4j.simple.entity.Neo4jBasicNode;
 import com.neo4j.simple.entity.Neo4jQueryRelation;
 import lombok.SneakyThrows;
-import org.apache.commons.collections.IteratorUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.neo4j.driver.internal.InternalPath;
 import org.neo4j.driver.types.Node;
 import org.neo4j.driver.types.Relationship;
@@ -16,6 +14,7 @@ import org.neo4j.ogm.model.Property;
 import org.neo4j.ogm.model.Result;
 import org.neo4j.ogm.response.model.NodeModel;
 import org.neo4j.ogm.session.Session;
+import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
