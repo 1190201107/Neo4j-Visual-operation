@@ -7,11 +7,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * 基础返回关系VO
- * 关系
- * @author YangBM
- */
+
 @Data
 public class Neo4jBasicRelationReturnVO implements Serializable {
     private static final long serialVersionUID = 1L;
